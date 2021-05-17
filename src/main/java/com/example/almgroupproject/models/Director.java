@@ -4,25 +4,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 /**
  * Created by Jesper Friberg Spång
  * Date: 2021-05-17
- * Time: 14:04
+ * Time: 14:23
  * Project: almGroupProject
  * Copyright: MIT
  */
-
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Movie {
-
-    private String title;
-    private List<Actor> actorList;
-    private String genre;
-    private List<Review> reviewList;
-    private String director;
+@AllArgsConstructor
+public class Director {
+    private String firstName;
+    private String lastName;
+    private String gender;
 
 }

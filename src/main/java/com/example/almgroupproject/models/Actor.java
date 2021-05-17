@@ -4,25 +4,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.time.LocalDate;
 
 /**
  * Created by Jesper Friberg Spång
  * Date: 2021-05-17
- * Time: 14:04
+ * Time: 14:13
  * Project: almGroupProject
  * Copyright: MIT
  */
-
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Movie {
+@AllArgsConstructor
+public class Actor {
 
-    private String title;
-    private List<Actor> actorList;
-    private String genre;
-    private List<Review> reviewList;
-    private String director;
+    private String firstName;
+    private String lastName;
+    private LocalDate dateOfBirth;
 
 }
