@@ -1,5 +1,11 @@
 package com.example.almgroupproject.repositories;
 
+import com.example.almgroupproject.models.Actor;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
 /**
  * Created by Jesper Friberg Spång
  * Date: 2021-05-17
@@ -7,5 +13,7 @@ package com.example.almgroupproject.repositories;
  * Project: almGroupProject
  * Copyright: MIT
  */
-public interface ActorRepository {
+@Repository
+public interface ActorRepository extends MongoRepository <Actor, String> {
+
 }
