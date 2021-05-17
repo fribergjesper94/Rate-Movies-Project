@@ -15,5 +15,6 @@ import java.util.List;
  */
 @Repository
 public interface ActorRepository extends MongoRepository <Actor, String> {
+    Actor findActorByFirstNameAndLastName (String firstName, String lastName);
 
 }
