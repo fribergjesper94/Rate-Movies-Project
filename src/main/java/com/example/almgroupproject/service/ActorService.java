@@ -1,6 +1,12 @@
 package com.example.almgroupproject.service;
 
+import com.example.almgroupproject.models.Actor;
+import com.example.almgroupproject.repositories.ActorRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by Jesper Friberg Spång
@@ -10,7 +16,15 @@ import org.springframework.stereotype.Service;
  * Copyright: MIT
  */
 @Service
+@RequiredArgsConstructor
 public class ActorService {
+
     private final ActorRepository repository;
+
+    public List<Actor> getAllActors () {
+        return repository.findAll();
+    }
+
+
 
 }
