@@ -4,6 +4,8 @@ import com.example.almgroupproject.models.Actor;
 import com.example.almgroupproject.service.ActorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,6 +28,11 @@ public class ActorController {
     public List<Actor> allActors () {
 
         return service.getAllActors();
+    }
+
+    @PostMapping(path = "/add")
+    public String addActor (@RequestBody Actor actor) {
+        return service.save(actor);
     }
 
 
