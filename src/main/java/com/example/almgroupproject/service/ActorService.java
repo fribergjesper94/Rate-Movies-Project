@@ -26,5 +26,12 @@ public class ActorService {
     }
 
 
+    public String save(Actor actor) {
 
+        if (repository.findActorByFirstNameAndLastName(actor.getFirstName(), actor.getLastName()) != null) {
+            return "Actor already exists";
+        }
+        repository.save(actor);
+      return "Actor saved";
+    }
 }
