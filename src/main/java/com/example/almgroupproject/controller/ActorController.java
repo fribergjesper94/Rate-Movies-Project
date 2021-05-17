@@ -17,6 +17,7 @@ import java.util.List;
  */
 
 @RestController("actor")
+@RequiredArgsConstructor
 public class ActorController {
 
     private final ActorService service;
@@ -24,7 +25,7 @@ public class ActorController {
     @GetMapping(path = "/all")
     public List<Actor> allActors () {
 
-        return service
+        return service.getAllActors();
     }
 
 
