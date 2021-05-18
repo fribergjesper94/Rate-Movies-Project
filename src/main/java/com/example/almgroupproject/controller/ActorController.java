@@ -3,10 +3,7 @@ package com.example.almgroupproject.controller;
 import com.example.almgroupproject.models.Actor;
 import com.example.almgroupproject.service.ActorService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,8 +14,8 @@ import java.util.List;
  * Project: almGroupProject
  * Copyright: MIT
  */
-
 @RestController("actor")
+@RequestMapping("/actor")
 @RequiredArgsConstructor
 public class ActorController {
 
