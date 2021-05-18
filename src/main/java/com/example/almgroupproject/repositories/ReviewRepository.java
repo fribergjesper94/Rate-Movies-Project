@@ -13,4 +13,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 public interface ReviewRepository extends MongoRepository<Review, String> {
     Review findReviewById (String id);
     Review findReviewByComment (String comment);
+    Review findReviewByIdAndCommentAndRating (String id, String comment, int rating);
 }
