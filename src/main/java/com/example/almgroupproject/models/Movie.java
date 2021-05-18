@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Id;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,14 +25,20 @@ public class Movie {
     private String id;
 
     private String title;
-    private List<Actor> actorList;
+    private List<Actor> actorList = new ArrayList<>();
     private String genre;
-    private List<Review> reviewList;
+    private List<Review> reviewList = new ArrayList<>();
     private Director director;
 
     public void addActorToList(Actor actor){
         if(!actorList.contains(actor)){
             actorList.add(actor);
+        }
+    }
+
+    public void addReviewToList(Review review){
+        if(!reviewList.contains(review)){
+            reviewList.add(review);
         }
     }
 }
