@@ -3,6 +3,7 @@ package com.example.almgroupproject.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import javax.persistence.Id;
 
 /**
  * Created by Jesper Friberg Spång
@@ -16,6 +17,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 public class Review {
+    @Id
+    private String id;
+
     private String comment;
     private int rating;
 }
