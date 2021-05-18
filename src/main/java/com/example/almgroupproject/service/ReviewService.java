@@ -27,7 +27,7 @@ public class ReviewService {
 
     public String save(Review review) {
 
-        if (repository.findReviewById(review.getId()) != null) {
+        if (repository.findReviewByIdAndCommentAndRating(review.getId(), review.getComment(), review.getRating()) != null) {
             return "Review already exists";
         }
         repository.save(review);
