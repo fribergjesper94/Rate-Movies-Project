@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Id;
 import java.util.List;
 
 /**
@@ -18,6 +19,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Movie {
+
+    @Id
+    private String id;
 
     private String title;
     private List<Actor> actorList;
