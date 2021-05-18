@@ -21,7 +21,7 @@ public class DirectorServiceTest {
 
     @Test
     void saveDirectorTest() {
-        Director director1 = new Director(1, "Pål", "Pålsson", "Man");
+        Director director1 = new Director("1", "Pål", "Pålsson", "Man");
         DirectorService service = new DirectorService(mockRepository);
 
         assertEquals(service.save(director1), "Director saved");
@@ -31,9 +31,9 @@ public class DirectorServiceTest {
 
     @Test
     void getAllDirectorsTest() {
-        Director director1 = new Director(1, "Pål", "Pålsson", "Man");
-        Director director2 = new Director(2, "Agda", "Braun", "Kvinna");
-        Director director3 = new Director(3, "Jason", "Vorhees", "Annat");
+        Director director1 = new Director("1", "Pål", "Pålsson", "Man");
+        Director director2 = new Director("2", "Agda", "Braun", "Kvinna");
+        Director director3 = new Director("3", "Jason", "Vorhees", "Annat");
         DirectorService service = new DirectorService(mockRepository);
         List<Director> completeDirectorList = new ArrayList<>();
         completeDirectorList.add(director1);
