@@ -27,7 +27,7 @@ public class Movie {
     private List<Actor> actorList;
     private String genre;
     private List<Review> reviewList;
-    private String director;
+    private Director director;
 
     public void addActorToList(Actor actor){
         if(!actorList.contains(actor)){
