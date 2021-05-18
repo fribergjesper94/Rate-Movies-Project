@@ -29,4 +29,9 @@ public class Movie {
     private List<Review> reviewList;
     private String director;
 
+    public void addActorToList(Actor actor){
+        if(!actorList.contains(actor)){
+            actorList.add(actor);
+        }
+    }
 }
