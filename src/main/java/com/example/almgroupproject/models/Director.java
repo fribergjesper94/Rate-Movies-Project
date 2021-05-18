@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Id;
+
 /**
  * Created by Jesper Friberg Spång
  * Date: 2021-05-17
@@ -15,6 +17,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Director {
+    @Id
+    private String id;
+
     private String firstName;
     private String lastName;
     private String gender;
