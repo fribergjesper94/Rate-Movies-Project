@@ -49,20 +49,8 @@ class ReviewServiceTest {
 
         list.add(newReview1);
 
-
-        //when(reviewRepository.findAll()).thenReturn(completeFoodList);
-
         when(reviewRepository.findAll()).thenReturn(list);
         assertEquals(reviewService.getAllReviews(), Arrays.asList(newReview1));
-
-
-        System.out.println(newReview1);
-
-
-        //assertTrue(reviewRepository.contains(newReview1));
-
-
-
     }
 
     @DisplayName("Test for save a review")
@@ -83,7 +71,5 @@ class ReviewServiceTest {
         assertEquals(reviewService.save(newReview2), "Review saved");
         when(reviewRepository.findReviewByIdAndCommentAndRating(newReview2.getId(), newReview2.getComment(), newReview2.getRating())).thenReturn(newReview2);
         assertEquals(reviewService.save(newReview2), "Review already exists");
-
-
     }
 }
