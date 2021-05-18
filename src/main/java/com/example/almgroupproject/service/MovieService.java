@@ -25,4 +25,8 @@ public class MovieService {
         return repository.findAll();
     }
 
+    public String save(Movie movie) {
+        repository.save(movie);
+        return "Movie saved";
+    }
 }

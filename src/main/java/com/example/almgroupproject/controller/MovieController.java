@@ -3,9 +3,7 @@ package com.example.almgroupproject.controller;
 import com.example.almgroupproject.models.Movie;
 import com.example.almgroupproject.service.MovieService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +25,10 @@ public class MovieController {
     @GetMapping(path = "/all")
     public List<Movie> getAllMovies(){
         return movieService.getAllMovies();
+    }
+
+    @PostMapping(path = "/add")
+    public String addMovie(@RequestBody Movie movie){
+        return movieService.save(movie);
     }
 }
