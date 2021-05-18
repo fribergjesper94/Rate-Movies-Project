@@ -20,7 +20,7 @@ import java.time.LocalDate;
 public class Actor {
 
     @Id
-    private int id;
+    private String id;
 
     private String firstName;
     private String lastName;
