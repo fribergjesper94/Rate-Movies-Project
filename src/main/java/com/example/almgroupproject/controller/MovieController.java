@@ -31,4 +31,9 @@ public class MovieController {
     public String addMovie(@RequestBody Movie movie){
         return movieService.save(movie);
     }
+
+    @PutMapping(path = "/addActor")
+    public String addActorToMovie(@RequestBody String title, String firstname, String lastname){
+        return movieService.addActorToMovie(title,firstname,lastname);
+    }
 }
