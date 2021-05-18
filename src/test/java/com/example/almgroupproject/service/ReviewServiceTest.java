@@ -28,8 +28,6 @@ class ReviewServiceTest {
 
     @Mock
     ReviewRepository reviewRepository;
-
-
     @DisplayName("Test for get all reviews")
     @Test
     void getAllReviews() {
