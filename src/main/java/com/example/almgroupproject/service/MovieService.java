@@ -44,7 +44,7 @@ public class MovieService {
         }else if(selectedMovie.getActorList().contains(selectedActor)){
             return "Actor already in movie";
         }
-        
+
         selectedMovie.addActorToList(selectedActor);
         movieRepository.save(selectedMovie);
 
