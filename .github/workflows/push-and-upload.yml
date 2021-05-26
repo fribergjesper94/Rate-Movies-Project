@@ -1,15 +1,10 @@
-name: CI Testing
+name: CD Docker
 
 on:
   workflow_dispatch:
-  push:
-
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  tests:
+  push-and-upload:
 
     runs-on: ubuntu-latest
 
@@ -24,4 +19,4 @@ jobs:
           distribution: 'adopt'
 
       - name: Build Jar
-        run: mvn test
+        run: mvn clean install
