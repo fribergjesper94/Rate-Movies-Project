@@ -1,24 +1,22 @@
-name: CD Docker
+name: push-and-upload
 
 on:
   workflow_dispatch:
 
 jobs:
-  test:
+  push-and-upload:
 
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-
       - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
           java-version: '11'
           distribution: 'adopt'
-
-      - name: Build Jar
+      - name: Run Test
         run: mvn clean install
 
       - name: Docker Hub Login
@@ -27,15 +25,15 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and Push
+      - name: Build and push
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:${{ github.run_number }}
+          tags: fribergjspr/my-project:${{ github.run_number }}
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: app.jar
-          path: target/*.jar
+          path: target/*jar
