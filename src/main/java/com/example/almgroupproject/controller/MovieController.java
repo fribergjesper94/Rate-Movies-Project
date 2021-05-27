@@ -33,7 +33,12 @@ public class MovieController {
     }
 
     @PutMapping(path = "/addActor")
-    public String addActorToMovie(@RequestBody String title, String firstname, String lastname){
+    public String addActorToMovie(@RequestParam String title, @RequestParam String firstname, @RequestParam String lastname){
         return movieService.addActorToMovie(title,firstname,lastname);
+    }
+
+    @PutMapping(path = "/addDirector")
+    public String addDirectorToMovie(@RequestParam String title, @RequestParam String firstname, @RequestParam String lastname) {
+        return movieService.addDirectorToMovie(title, firstname, lastname);
     }
 }

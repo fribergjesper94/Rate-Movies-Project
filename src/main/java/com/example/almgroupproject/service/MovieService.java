@@ -1,9 +1,13 @@
 package com.example.almgroupproject.service;
 
 import com.example.almgroupproject.models.Actor;
+import com.example.almgroupproject.models.Director;
 import com.example.almgroupproject.models.Movie;
+import com.example.almgroupproject.models.Review;
 import com.example.almgroupproject.repositories.ActorRepository;
+import com.example.almgroupproject.repositories.DirectorRepository;
 import com.example.almgroupproject.repositories.MovieRepository;
+import com.example.almgroupproject.repositories.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +27,7 @@ public class MovieService {
 
     private final MovieRepository movieRepository;
     private final ActorRepository actorRepository;
+    private final DirectorRepository directorRepository;
 
     public List<Movie> getAllMovies(){
         return movieRepository.findAll();
@@ -50,4 +55,26 @@ public class MovieService {
 
         return "Actor added to movie";
     }
+
+    public String addDirectorToMovie(String title, String firstname, String lastname) {
+
+        Director selectedDirector = directorRepository.findDirectorByFirstNameAndLastName(firstname, lastname);
+        Movie selectedMovie = movieRepository.findMovieByTitle(title);
+
+        if(selectedDirector == null){
+            return "Director not found";
+        }else if (selectedMovie == null){
+            return "Movie not found";
+        }else if(selectedMovie.getDirector() != null){
+            if (selectedMovie.getDirector().equals(selectedDirector)) {
+                return "Director already in movie";
+            }
+        }
+
+        selectedMovie.setDirector(selectedDirector);
+        movieRepository.save(selectedMovie);
+
+        return "Director added to movie";
+    }
+
 }

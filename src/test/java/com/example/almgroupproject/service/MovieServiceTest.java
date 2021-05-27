@@ -5,6 +5,7 @@ import com.example.almgroupproject.models.Director;
 import com.example.almgroupproject.models.Movie;
 import com.example.almgroupproject.models.Review;
 import com.example.almgroupproject.repositories.ActorRepository;
+import com.example.almgroupproject.repositories.DirectorRepository;
 import com.example.almgroupproject.repositories.MovieRepository;
 import org.apache.tomcat.jni.Local;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,6 +33,9 @@ class MovieServiceTest {
     @Mock
     ActorRepository mockActorRepository;
 
+    @Mock
+    DirectorRepository mockDirectorRepository;
+
     MovieService movieService;
 
     List<Actor> allActorsList;
@@ -39,7 +43,7 @@ class MovieServiceTest {
 
     @BeforeEach
     void init(){
-        movieService = new MovieService(mockMovieRepository,mockActorRepository);
+        movieService = new MovieService(mockMovieRepository,mockActorRepository, mockDirectorRepository);
 
         Actor actor1 = new Actor("1","Tom","Kryssning", LocalDate.of(1962,7,3));
         Director director1 = new Director("1","Micke","Bukt","Unknown");
