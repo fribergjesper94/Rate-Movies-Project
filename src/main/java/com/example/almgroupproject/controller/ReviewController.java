@@ -1,6 +1,9 @@
 package com.example.almgroupproject.controller;
 
+import com.example.almgroupproject.models.Movie;
 import com.example.almgroupproject.models.Review;
+import com.example.almgroupproject.repositories.MovieRepository;
+import com.example.almgroupproject.service.MovieService;
 import com.example.almgroupproject.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +23,7 @@ import java.util.List;
 public class ReviewController {
 
     private final ReviewService service;
+    private final MovieRepository movieRepository;
 
     @GetMapping(path = "/all")
     public List<Review> allReviews () {
@@ -27,8 +31,16 @@ public class ReviewController {
         return service.getAllReviews();
     }
 
-    @PostMapping(path = "/add")
-    public String addReview (@RequestBody Review review) {
+    @PostMapping(value = "/add/{title}")
+    public String addReview (@PathVariable String title, @RequestBody Review review) {
+        Movie selectedMovie = movieRepository.findMovieByTitle(title);
+
+        if (selectedMovie == null) {
+            return "Selected movie not found";
+        }
+        selectedMovie.addReviewToList(review);
+        movieRepository.save(selectedMovie);
+
         return service.save(review);
     }
 
