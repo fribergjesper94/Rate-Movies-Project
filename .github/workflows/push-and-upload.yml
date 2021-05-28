@@ -30,7 +30,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:${{ github.run_number }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app
 
 
       - name: Upload Artifact
